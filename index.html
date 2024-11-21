@@ -3,15 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Links Page</title>
+    <title>made by kirk</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 50px;
+            margin: 0;
+            padding: 0;
             background-color: #f4f4f4;
         }
-        .link {
+        .navbar {
+            display: flex;
+            justify-content: center;
+            background-color: #000000;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        .navbar a:hover {
+            background-color: #333333;
+        }
+        .section {
+            display: none;
+            text-align: center;
+            margin: 20px;
+        }
+        .section.active {
+            display: block;
+        }
+        .link, .game-link {
             display: inline-block;
             margin: 20px;
             padding: 15px 30px;
@@ -21,30 +49,60 @@
             border-radius: 8px;
             font-size: 18px;
         }
-        .link:hover {
+        .link:hover, .game-link:hover {
             background-color: #333333;
         }
-        .games {
-            margin-top: 40px;
-        }
-        .game-link {
-            margin: 10px 0;
-        }
     </style>
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => section.classList.remove('active'));
+
+            // Show the selected section
+            document.getElementById(sectionId).classList.add('active');
+        }
+    </script>
 </head>
 <body>
-    <h1>Odds Website</h1>
-    <h3>By Kirk aka Vatz</h3>
+    <div class="navbar">
+        <a href="javascript:void(0)" onclick="showSection('home')">Home</a>
+        <a href="javascript:void(0)" onclick="showSection('links')">Links</a>
+        <a href="javascript:void(0)" onclick="showSection('games')">Games</a>
+        <a href="javascript:void(0)" onclick="showSection('log')">Update log</a>
+        <a href="javascript:void(0)" onclick="showSection('abouts')">About</a>
+    </div>
     
-    <a href="https://github.com/ODDONTOP" target="_blank" class="link">Visit GitHub</a>
-    <a href="https://discord.gg/KmTZTqDgmG" target="_blank" class="link">Join The Discord</a>
-    <a href="https://github.com/kirk-vatz" target="_blank" class="link">Kirk's GitHub</a>
+    <div id="home" class="section active">
+        <h1>Odds Website</h1>
+        <h3>By Kirk aka Vatz</h3>
+        <p>welcome to Odds Website Made by kirk</p>
+        <img src="screenshot.png" alt="Screenshot" style="max-width: 100%; height: auto; border-radius: 10px;">
+      </div>
+
+    <div id="links" class="section">
+        <h2>Links</h2>
+        <a href="https://github.com/ODDONTOP" target="_blank" class="link">Visit GitHub</a>
+        <a href="https://discord.gg/KmTZTqDgmG" target="_blank" class="link">Join The Discord</a>
+        <a href="https://github.com/kirk-vatz" target="_blank" class="link">Kirk's GitHub</a>
+    </div>
     
-    <div class="games">
+    <div id="games" class="section">
         <h2>Games</h2>
         <a href="https://tinyurl.com/kirtgames" target="_blank" class="link game-link">Race Survival</a>
         <a href="https://tinyurl.com/kirtgames1" target="_blank" class="link game-link">GladiHoppers</a>
         <a href="https://tinyurl.com/kirtgames2" target="_blank" class="link game-link">Football Bros</a>
+        <a href="https://tinyurl.com/kirtgames3" target="_blank" class="link game-link">Basket Bros</a>
+        <a href="https://tinyurl.com/kirtgames4" target="_blank" class="link game-link">Basket Random</a>
+    </div>
+
+    <div id="log" class="section">
+        <h4> First Release: Update 11-20: Added Games, My github, discord server, and Navigation bar </h4>
+        <h4> Second Release: Update 11-20: Added An about section and 2 more games. </h4>
+    </div>
+
+    <div id="abouts" class="section">
+        <h3>This website was made for odd and for everyone in the server to play games and have fun</h3>
     </div>
 </body>
 </html>
